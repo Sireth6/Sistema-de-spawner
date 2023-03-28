@@ -21,6 +21,6 @@ public class Spawner : MonoBehaviour
     private void SpawnEnemy()
     {
         int spawnerID = Random.Range(0, spawners.Length);
-        Instantiate(enemy, spawners[spawnerID].transform.position, spawners[1].transform.rotatiom)
+        Instantiate(enemy, spawners[spawnerID].transform.position, spawners[spawnerID].transform.rotation);
     }
 }
