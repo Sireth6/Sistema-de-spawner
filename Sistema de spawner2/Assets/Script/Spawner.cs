@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private float countdown;
+    private int waveNumber = 0;
+    private int enemySpawnAmount = 0;
+    private int enemiesKilled = 0;
+
     public GameObject[] spawners;
     public GameObject enemy;
 
@@ -13,22 +16,50 @@ public class Spawner : MonoBehaviour
     {
         spawners = new GameObject[5];
 
-        for (int i = 0; i < spawners.Length; i++)
+        for(int i = 0; i < spawners.Length; i++)
         {
             spawners[i] = transform.GetChild(i).gameObject;
         }
 
+        StartWave();
     }
 
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            SpawnEnemy();
+        }
+    }
 
     private void SpawnEnemy()
     {
         int spawnerID = Random.Range(0, spawners.Length);
-        while (true)
+        Instantiate(enemy, spawners[spawnerID].transform.position, spawners[spawnerID].transform.rotation);
+    }
+
+    private void StartWave()
+    {
+        waveNumber = 1;
+        enemySpawnAmount = 2;
+        enemiesKilled = 0;
+        
+        for(int i = 0; i < enemySpawnAmount; i++)
         {
-            Instantiate(enemy, spawners[spawnerID].transform.position, spawners[spawnerID].transform.rotation);
-            yield return new WaitForSeconds(5f);
+            SpawnEnemy();
+        }
+    }
+
+    private void NextWave()
+
+    {
+        waveNumber++;
+        enemySpawnAmount += 2;
+        enemiesKilled = 0;
+
+        for (int i = 0; i < enemySpawnAmount; i++)
+        {
+            SpawnEnemy();
         }
     }
 }
