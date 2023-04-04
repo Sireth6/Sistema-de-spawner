@@ -6,8 +6,9 @@ public class PlayerMotor : MonoBehaviour
 {
     float moveSpeed;
     float walkSpeed = 2;
-    float sprintSpeed = 6;
-    float gravity = 4 ;
+    float sprintSpeed = 4;
+    float jumpSpeed = 10;
+    float gravity = 1 ;
 
     Vector3 moveDirection;
 
@@ -31,7 +32,7 @@ public class PlayerMotor : MonoBehaviour
         if (controller.isGrounded)
         {
             moveDirection = new Vector3(moveX, 0, moveZ);
-            if(Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift) && moveZ == 1)
             {
                 moveSpeed = sprintSpeed;
             }
@@ -41,6 +42,11 @@ public class PlayerMotor : MonoBehaviour
             }
 
             moveDirection *= moveSpeed;
+
+            if(Input.GetKeyDown (KeyCode.Space))
+            {
+                moveDirection.y += jumpSpeed;
+            }
         }
 
         moveDirection.y -= gravity;
