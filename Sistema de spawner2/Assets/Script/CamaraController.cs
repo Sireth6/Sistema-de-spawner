@@ -7,6 +7,8 @@ public class CamaraController : MonoBehaviour
     [SerializeField]
     float mouseSensitivity;
 
+    float xAxisClamp = 0;
+
     [SerializeField]
     Transform player, playerArms;
 
@@ -24,12 +26,25 @@ public class CamaraController : MonoBehaviour
         float rotAmountX = mouseX * mouseSensitivity;
         float rotAmountY = mouseY * mouseSensitivity;
 
+        xAxisClamp -= rotAmountY;
+
         Vector3 rotPlayerArms = playerArms.transform.rotation.eulerAngles;
         Vector3 rotPlayer = player.transform.rotation.eulerAngles;
 
         rotPlayerArms.x -= rotAmountY;
         rotPlayerArms.z = 0;
         rotPlayer.y += rotAmountX;
+
+        if (xAxisClamp > 90)
+        {
+            xAxisClamp = 90;
+            rotPlayerArms.x = 90;
+        }
+        else if (xAxisClamp < -90)
+        {
+            xAxisClamp = -90;
+            rotPlayerArms.x = 270;
+        }
 
         playerArms.rotation = Quaternion.Euler(rotPlayerArms);
         player.rotation = Quaternion.Euler(rotPlayer);
