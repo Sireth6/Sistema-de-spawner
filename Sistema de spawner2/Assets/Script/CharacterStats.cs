@@ -12,7 +12,7 @@ public class CharacterStats : MonoBehaviour
 
     public bool isDead = false;
 
-    public void CheckHealth()
+    public virtual void CheckHealth()
     {
         if (currHealth >= maxHealth)
         {
