@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] float stoppingDistance;
+
     NavMeshAgent agent;
 
     GameObject target;
@@ -16,11 +18,25 @@ public class Enemy : MonoBehaviour
 
     private void Update ()
     {
-        GoToTarget();
+        float dist = Vector3.Distance(transform.position, target.transform.position);
+        if(dist < stoppingDistance)
+        {
+            StopEnemy();
+        }
+        else
+        {
+            GoToTarget();
+        }
     }
 
     private void GoToTarget()
     {
+        agent.isStopped = false;
         agent.SetDestination(target.transform.position);
+    }
+
+    private void StopEnemy()
+    {
+        agent.isStopped = true;
     }
 }
