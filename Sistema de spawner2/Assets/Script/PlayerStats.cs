@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerStats : CharacterStats
 {
     PlayerUI playerUI;
-    // Start is called before the first frame update
+ 
+
     void Start()
     {
         playerUI = GetComponent<PlayerUI>();

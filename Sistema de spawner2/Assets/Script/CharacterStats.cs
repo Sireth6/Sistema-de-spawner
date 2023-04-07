@@ -24,7 +24,7 @@ public class CharacterStats : MonoBehaviour
             isDead = true;
         }
     }
-    public void CheckStamina()
+    public virtual void CheckStamina()
     {
         if(currStamina >= maxStamina)
         {

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
 
-    public Text healthAmount, staminaAmount;
+    public TMP_Text healthAmount, staminaAmount;
   
 }
