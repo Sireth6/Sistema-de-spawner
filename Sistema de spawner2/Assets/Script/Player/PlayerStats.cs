@@ -41,4 +41,5 @@ public class PlayerStats : CharacterStats
         base.CheckStamina();
         SetStats();
     }
+
 }
