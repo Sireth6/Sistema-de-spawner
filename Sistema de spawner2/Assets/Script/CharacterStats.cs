@@ -22,6 +22,7 @@ public class CharacterStats : MonoBehaviour
         {
             currHealth = 0;
             isDead = true;
+            Die();
         }
     }
     public virtual void CheckStamina()
