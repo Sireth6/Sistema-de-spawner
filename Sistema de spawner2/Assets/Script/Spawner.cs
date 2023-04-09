@@ -5,8 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     private int waveNumber = 0;
-    private int enemySpawnAmount = 0;
-    private int enemiesKilled = 0;
+    public int enemySpawnAmount = 0;
+    public int enemiesKilled = 0;
 
     public GameObject[] spawners;
     public GameObject enemy;
@@ -30,6 +30,11 @@ public class Spawner : MonoBehaviour
         {
             SpawnEnemy();
         }
+
+        if(enemiesKilled >= enemySpawnAmount)
+        {
+            NextWave();
+        }
     }
 
     private void SpawnEnemy()
@@ -50,7 +55,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void NextWave()
+    public void NextWave()
 
     {
         waveNumber++;
