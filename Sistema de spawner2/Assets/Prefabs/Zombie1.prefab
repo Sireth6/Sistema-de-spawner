@@ -2700,8 +2700,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8974730397773556087}
   - component: {fileID: 1962832737}
-  - component: {fileID: 1962832738}
   - component: {fileID: 1962832739}
+  - component: {fileID: 1962832738}
   - component: {fileID: 1962832740}
   m_Layer: 0
   m_Name: Zombie1
@@ -2752,19 +2752,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.8938909, z: 0.44306707}
   m_Center: {x: 0, y: 0.9941976, z: -0.0020225048}
---- !u!114 &1962832738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8630995938439148493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cb3ef5ffde684d45a04fff418c35951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stoppingDistance: 2.3
 --- !u!195 &1962832739
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2787,6 +2774,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1962832738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630995938439148493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb3ef5ffde684d45a04fff418c35951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoppingDistance: 2.3
 --- !u!114 &1962832740
 MonoBehaviour:
   m_ObjectHideFlags: 0
