@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
         {
             GoToTarget();
         }
+
     }
 
     private void GoToTarget()
